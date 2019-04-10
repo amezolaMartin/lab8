@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import packlaborategia5.Erabiltzailea;
-import packlaborategia5.Liburua;
-import packlaborategia5.ListaErabiltzaileak;
+import packlaborategia8.Erabiltzailea;
+import packlaborategia8.Liburua;
+import packlaborategia8.ListaErabiltzaileak;
 
 public class ListaErabiltzaileakTest 
 {

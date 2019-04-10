@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import packlaborategia5.Liburua;
-import packlaborategia5.ListaLiburuak;
+import packlaborategia8.Liburua;
+import packlaborategia8.ListaLiburuak;
 
 public class ListaLiburuakTest 
 {
