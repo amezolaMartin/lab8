@@ -82,8 +82,6 @@ public class Katalogoa
 			else
 			{
 	 			throw (new EzinBueltatuEzDagoelakoMailegatutaSalbuespena (Lib));
-	 			//Al hacer este throw, aqui no da ningun tipo de error, pero las pruebas no las pasa, 
-	 			// puedes ver esto en KatalogoaTest 
 	 		}
 	 	}
 	}

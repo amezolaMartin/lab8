@@ -42,4 +42,10 @@ public class Liburua
 		System.out.println(this.titulua+"-ren idazlea "+this.idazlea+" da, "+this.idLiburua+" id-arekin");
 	}
 	
+	public void liburuarenIdAldatu(int pId)
+	{
+		//Metodo honen helburua, liburu baten id aldatzea, horretarako erabiltzaileak
+		//3 saiakera izango ditu, hiru saiakerak txarto egiten baditu, kontsolan agertuko da
+		//mezu bat non katalogatze prozesua bertan behera utzi dela adierazten da.
+	}
 }
