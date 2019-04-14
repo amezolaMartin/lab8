@@ -72,9 +72,13 @@ public class ListaLiburuak
 	}
 	public void gehituLiburua(Liburua pLiburua)
     {
-		if (!this.lista.contains(pLiburua))
+		if (!this.lista.contains(pLiburua)) 
 		{
 			this.lista.add(pLiburua);
+		}
+		else
+		{
+			// TODO.
 		}
     }
 	public void kenduLiburua(Liburua pLiburua)
