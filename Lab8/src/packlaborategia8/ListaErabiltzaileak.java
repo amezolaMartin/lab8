@@ -37,22 +37,30 @@ public class ListaErabiltzaileak
    	}
    	public Erabiltzailea bilatuErabiltzaileaIdz(int pId)
    	{
-   		boolean salataria = false;
-   		Erabiltzailea e = null;
-   		Iterator<Erabiltzailea>itr = this.getIteradorea();
-   		while (itr.hasNext()&& !salataria)
+   		try
    		{
-   			e = itr.next();
-   			if(e.idHauDu(pId))
-   			{
-   				salataria = true;
-   			}
+	   		boolean salataria = false;
+	   		Erabiltzailea e = null;
+	   		Iterator<Erabiltzailea>itr = this.getIteradorea();
+	   		while (itr.hasNext()&& !salataria)
+	   		{
+	   			e = itr.next();
+	   			if(e.idHauDu(pId))
+	   			{
+	   				salataria = true;
+	   			}
+	   		}
+	   		if (!salataria)
+	   		{
+	   			throw new Exception();
+	   		}
+	   		return e;
    		}
-   		if (!salataria)
+   		catch (Exception e)
    		{
-   			e = null;
+   			System.out.println("Ez dago id hori duen erabiltzailerik");
+   			return null;
    		}
-   		return e;
    	}
    	public boolean badagoIdBerdinekoErabiltzailerik(Erabiltzailea pErabiltzailea)
    	{
@@ -78,19 +86,12 @@ public class ListaErabiltzaileak
    	}
 	public void erabiltzaileaBajaEman(int pIdErabiltzailea)
 	{
-		boolean salataria = false;
-		Erabiltzailea e = null;
-		Iterator <Erabiltzailea> itr = this.getIteradorea();
-		while (itr.hasNext() && !salataria)
+		Erabiltzailea e = this.bilatuErabiltzaileaIdz(pIdErabiltzailea);
+		if (e != null)
 		{
-			e = itr.next();
-			if (e.idHauDu(pIdErabiltzailea))
-			{
-				salataria = true;
-				this.lista.remove(e);
-			}
+			this.lista.remove(e);
 		}
-   	}
+	}
    	public Erabiltzailea norkDaukaMaileguan(Liburua pLiburu)
    	{
    		Iterator <Erabiltzailea> itr = this.getIteradorea();

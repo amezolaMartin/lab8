@@ -112,8 +112,9 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testMailegatuLiburua() {
-System.out.println("testMailegatuLiburua:");
+	public void testMailegatuLiburua() 
+	{
+		System.out.println("testMailegatuLiburua:");
 		
 		kat.erreseteatu();
 		Liburua l = new Liburua ("Proba","Proba",1001);
@@ -145,20 +146,25 @@ System.out.println("testMailegatuLiburua:");
 	}
 
 	@Test
-	public void testItzuliLiburua() {
+	public void testItzuliLiburua() throws EzinBueltatuEzDagoelakoMailegatutaSalbuespena
+	{
+		System.out.println("testItzuliLiburua");
 		kat.erreseteatu();
+		
 		kat.katalogatuLiburua(l1);
 		kat.katalogatuLiburua(l2);
 		kat.katalogatuLiburua(l3);
 		
+		
 		kat.itzuliLiburua(3333);		//arazorik gabe itzuli ahal l3
 		assertNull(kat.bilatuLiburuaIdz(3333));
 		
-		kat.itzuliLiburua(2222);		//arazorik gabe itzuli ahal l2
+		kat.itzuliLiburua(2222);		//ezin itzuli l2, ez dago mailegatuta
 		assertNull(kat.bilatuLiburuaIdz(2222));
 		
 		kat.itzuliLiburua(0000); 		//Ez da existitzen
 		assertNull(kat.bilatuLiburuaIdz(0000));
+		System.out.println("_________________________");
 	}
 
 	@Test

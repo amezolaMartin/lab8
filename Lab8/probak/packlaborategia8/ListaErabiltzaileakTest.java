@@ -81,6 +81,7 @@ public class ListaErabiltzaileakTest
 	@Test
 	public void testBilatuErabiltzaileaIdz() 
 	{
+		System.out.println("testBilatuErabiltzaileaIdz");
 		lista.erreseteatu();
 		Erabiltzailea erab = null;
 		lista.erabiltzaileariAltaEman(erab1);
@@ -109,6 +110,7 @@ public class ListaErabiltzaileakTest
 	@Test
 	public void testErabiltzaileariAltaEman() 
 	{
+		System.out.println("testErabiltzaileariAltaEman");
 		lista.erreseteatu();
 		int zenbat = lista.erabiltzaileKopurua();
 		lista.erabiltzaileariAltaEman(erab1);				//Erabiltzailea gehitu ahal
@@ -125,6 +127,7 @@ public class ListaErabiltzaileakTest
 	@Test
 	public void testErabiltzaileaBajaEman() 
 	{
+		System.out.println("testErabiltzaileaBajaEman");
 		lista.erreseteatu();
 		lista.erabiltzaileariAltaEman(erab1);
 		lista.erabiltzaileariAltaEman(erab2);
@@ -145,6 +148,7 @@ public class ListaErabiltzaileakTest
 	@Test
 	public void testNorkDaukaMaileguan() 
 	{
+		System.out.println("testNorkDaukaMaileguan");
 		lista.erreseteatu();
 		lista.erabiltzaileariAltaEman(erab1);
 		lista.erabiltzaileariAltaEman(erab2);

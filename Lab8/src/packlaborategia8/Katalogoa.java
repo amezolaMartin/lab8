@@ -1,7 +1,7 @@
 package packlaborategia8;
 
 
-public class Katalogoa
+public class Katalogoa 
 {
 	// atributuak
 	private ListaLiburuak lista;
@@ -70,13 +70,22 @@ public class Katalogoa
  			System.out.println("Ezin daiteke liburua mailegatu, ez da liburua exititzen");
  		}
 	}
- 	public void itzuliLiburua(int pIdLiburua)
+ 	public void itzuliLiburua(int pIdLiburua) throws EzinBueltatuEzDagoelakoMailegatutaSalbuespena
 	{
- 		Liburua Lib = 	this.lista.bilatuLiburuaIdz(pIdLiburua);
- 		if (Lib != null)
- 		{
- 			this.lista.kenduLiburua(Lib);
- 		}
+	 	Liburua Lib = this.lista.bilatuLiburuaIdz(pIdLiburua);
+	 	if (Lib != null)
+	 	{
+	 		if (ListaErabiltzaileak.getListaErabiltzaileak().norkDaukaMaileguan(Lib) != null)
+	 		{
+	 			this.lista.kenduLiburua(Lib);
+			}
+			else
+			{
+	 			throw new EzinBueltatuEzDagoelakoMailegatutaSalbuespena (Lib);
+	 			//Al hacer este throw, aqui no da ningun tipo de error, pero las pruebas no las pasa, 
+	 			// puedes ver esto en KatalogoaTest 
+	 		}
+	 	}
 	}
  	public void katalogatuLiburua(Liburua pLiburua)
  	{		
