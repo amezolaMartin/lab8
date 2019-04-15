@@ -78,6 +78,7 @@ public class Katalogoa
 	 		if (ListaErabiltzaileak.getListaErabiltzaileak().norkDaukaMaileguan(Lib) != null)
 	 		{
 	 			this.lista.kenduLiburua(Lib);
+	 			System.out.println(Lib.getTituloa()+" liburua, ondo itzuli da");
 			}
 			else
 			{
@@ -85,9 +86,18 @@ public class Katalogoa
 	 		}
 	 	}
 	}
- 	public void katalogatuLiburua(Liburua pLiburua)
- 	{		
- 		this.lista.gehituLiburua(pLiburua);
+ 	public void katalogatuLiburua(Liburua pLiburua) throws KatalogatzeanIdErrepikatuaSalbuespena
+ 	{	
+ 		if (!this.lista.idBerdinekoLibururikBaAlDa(pLiburua))
+		{
+			this.lista.gehituLiburua(pLiburua);
+			System.out.println(pLiburua.getTituloa()+" liburua ondo katalogatuta");
+		}
+		else
+		{
+			System.out.println(pLiburua.getId()+" liburuak ez du ID egokia "+pLiburua.getTituloa()+" libururako");
+			throw new KatalogatzeanIdErrepikatuaSalbuespena (pLiburua);
+		}
  	}
  	public void deskatalogatuLiburua(int pIdLiburua)
  	{

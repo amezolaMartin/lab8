@@ -5,8 +5,8 @@ public class EzinBueltatuEzDagoelakoMailegatutaSalbuespena extends Exception
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L; /* Esto se pone solo porque salia un warning
-	y si lo pones se quita */
+	private static final long serialVersionUID = 1L; 
+	/* Esto se pone solo porque salia un warning y si lo pones se quita */
 
 	public EzinBueltatuEzDagoelakoMailegatutaSalbuespena (Liburua lib)
 	{

@@ -90,6 +90,7 @@ public class ListaErabiltzaileak
 		if (e != null)
 		{
 			this.lista.remove(e);
+			System.out.println(e.getIzena()+" erabiltzailea ondo eman da BAJAN");
 		}
 	}
    	public Erabiltzailea norkDaukaMaileguan(Liburua pLiburu)

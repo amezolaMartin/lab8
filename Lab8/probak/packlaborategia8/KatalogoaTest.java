@@ -71,7 +71,8 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testGetKatalogoa() {
+	public void testGetKatalogoa() throws KatalogatzeanIdErrepikatuaSalbuespena
+	{
 		assertNull(katN);
 		kat.katalogatuLiburua(l1);
 		kat.katalogatuLiburua(l2);
@@ -83,7 +84,8 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testLiburuKopuru() {
+	public void testLiburuKopuru() throws KatalogatzeanIdErrepikatuaSalbuespena
+	{
 		kat.erreseteatu();
 		int zenbat = kat.liburuKopuru();
 		kat.katalogatuLiburua(l1);
@@ -95,7 +97,8 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testBilatuLiburuaIdz() {
+	public void testBilatuLiburuaIdz() throws KatalogatzeanIdErrepikatuaSalbuespena
+	{
 		kat = Katalogoa.getKatalogoa();
 		kat.erreseteatu();
 		kat.katalogatuLiburua(l1);
@@ -112,7 +115,7 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testMailegatuLiburua() 
+	public void testMailegatuLiburua() throws KatalogatzeanIdErrepikatuaSalbuespena
 	{
 		System.out.println("testMailegatuLiburua:");
 		
@@ -146,7 +149,7 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testItzuliLiburua() throws EzinBueltatuEzDagoelakoMailegatutaSalbuespena
+	public void testItzuliLiburua() throws EzinBueltatuEzDagoelakoMailegatutaSalbuespena, KatalogatzeanIdErrepikatuaSalbuespena
 	{
 		System.out.println("testItzuliLiburua");
 		kat.erreseteatu();
@@ -168,7 +171,8 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testKatalogatuLiburua() {
+	public void testKatalogatuLiburua() throws KatalogatzeanIdErrepikatuaSalbuespena
+	{
 		kat.erreseteatu();
 		int zenbat = kat.liburuKopuru();
 		kat.katalogatuLiburua(l1);					//Arazorik gabe katalogatu
@@ -183,7 +187,8 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testDeskatalogatuLiburua() {
+	public void testDeskatalogatuLiburua() throws KatalogatzeanIdErrepikatuaSalbuespena
+	{
 		System.out.println("testDeskatalogatuLiburua:");
 		Liburua l;
 		
@@ -213,7 +218,8 @@ public class KatalogoaTest {
 	}
 
 	@Test
-	public void testErreseteatu() {
+	public void testErreseteatu() throws KatalogatzeanIdErrepikatuaSalbuespena
+	{
 		kat.erreseteatu();
 		assertEquals(0,kat.liburuKopuru());
 		kat.katalogatuLiburua(l1);

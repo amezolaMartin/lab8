@@ -21,7 +21,10 @@ public class Erabiltzailea
 	}
 	
 	// beste metodoak
-	
+	public String getIzena ()
+	{
+		return this.izenOsoa;
+	}
 	public boolean idHauDu(int pId)
 	{
 		if (this.idErabilitzailea == pId)
