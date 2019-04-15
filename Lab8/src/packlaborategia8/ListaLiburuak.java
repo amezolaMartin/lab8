@@ -11,6 +11,7 @@ public class ListaLiburuak
 	private ArrayList<Liburua> lista;
 
 	// eraikitzailea
+	// pruebbbba
 	
 	public ListaLiburuak()
 	{

@@ -7,7 +7,8 @@ public class Liburua
 	private String titulua;
 	private String idazlea;
 	private int idLiburua;
-	// eraikitzailea
+	// eraikitzailea 
+	// prueb
 	public Liburua(String pTitulua, String pIdazlea, int pIdLiburua)
 	{
 		titulua = pTitulua;

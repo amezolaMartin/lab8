@@ -18,7 +18,7 @@ public class NAGUSIA {
 		dugu. */
 
 		erab1 = new Erabiltzailea("Ramon Gonzalez", 1000);
-		erab2 = new Erabiltzailea("Jorge Estebanez", 2000);// jola
+		erab2 = new Erabiltzailea("Jorge Estebanez", 2000);
 		erab3= new Erabiltzailea("Dari Goitia", 3000);
 		erab4 = new Erabiltzailea("Pepe el de las Papas", 4000);
 
