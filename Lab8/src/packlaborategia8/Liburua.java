@@ -22,7 +22,7 @@ public class Liburua
 		}
 		else
 		{
-			return false; // devuelve false
+			return false;
 		}
 	}
 	public boolean idBerdinaDute (Liburua pLiburua)

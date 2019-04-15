@@ -78,6 +78,6 @@ public class NAGUSIA
 		
 		kat.katalogatuLiburua(lib4); 
 		kat.katalogatuLiburua(lib5);
-		kat.katalogatuLiburua(lib6);
+		kat.katalogatuLiburua(lib6); 
 	}
 }
