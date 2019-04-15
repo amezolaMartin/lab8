@@ -26,7 +26,13 @@ public class NAGUSIA {
 		kat = Katalogoa.getKatalogoa();
 		kat.katalogatuLiburua(lib1);
 		kat.katalogatuLiburua(lib2);
-		kat.katalogatuLiburua(lib3); // Meto los tres libros en el Katalogoa.
+		kat.katalogatuLiburua(lib3); // Meto los tres libros en el Katalogoaaa
+		
+		// Ahora meto el 4 y como tiene el mismo id que el primero, podemos ver si la salbuespena 
+		// funciona.
+		
+		kat.katalogatuLiburua(lib4); 
+		
 		
 		
 //		kat.mailegatuLiburua(1111, 1000);
