@@ -106,7 +106,7 @@ public class Katalogoa
  					System.out.println(pLiburua.getTituloa()+" liburuak ez du ID egokia "+pLiburua.getId()+" libururako"); // Avisa de que el Id se repite.
  					saiakerak ++; // Sube una saiakera.
  					Scanner sc = new Scanner (System.in);
- 					System.out.print(saiakerak+". saiakera, Sartu id berri bat mesedez:");
+ 					System.out.println(saiakerak+". saiakera, Sartu id berri bat mesedez:");
  					int pId = sc.nextInt(); // Escanea el número que mete el erabiltzaile.				
  					pLiburua.liburuarenIdAldatu(pId); 
  					/* Si el id que ha metido sigue siendo el mismo, printea saiatu berriro. Sino, lo cambia. Y en la siguiente vuelta,
@@ -118,6 +118,10 @@ public class Katalogoa
  			{
  				System.out.println(saiakerak +" Saiakera: Sartu liburu honetarako ID berri bat: ");
  				
+ 			}
+ 			finally
+ 			{
+ 				System.out.println("");
  			}
  		}while(!denaKontrolpean && saiakerak<3);
  		if (!denaKontrolpean)
