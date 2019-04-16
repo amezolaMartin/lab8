@@ -1,5 +1,6 @@
 package packlaborategia8;
 
+import java.util.Scanner;
 
 public class Katalogoa 
 {
@@ -90,26 +91,42 @@ public class Katalogoa
  	{	
  		boolean denaKontrolpean = false;
  		int saiakerak = 0;
- 		do {
-	 		if (!this.lista.idBerdinekoLibururikBaAlDa(pLiburua))
-			{
-				this.lista.gehituLiburua(pLiburua);
-				System.out.println(pLiburua.getTituloa()+" liburua ondo katalogatuta");
-				denaKontrolpean = true;
-			}
-			else
-			{
-				System.out.println(pLiburua.getId()+" liburuak ez du ID egokia "+pLiburua.getTituloa()+" libururako");
-				saiakerak ++;
-				throw new KatalogatzeanIdErrepikatuaSalbuespena (pLiburua);
-				
-		}
- 		}while (!denaKontrolpean && saiakerak<3);
+ 		do 
+ 		{
+ 			try 
+ 			{
+ 				if (!this.lista.idBerdinekoLibururikBaAlDa(pLiburua))
+ 				{
+ 					this.lista.gehituLiburua(pLiburua);
+ 					System.out.println(pLiburua.getTituloa()+" liburua ondo katalogatuta");
+ 					denaKontrolpean = true; // Y sale del do/while.
+ 				}
+ 				else
+ 				{
+ 					System.out.println(pLiburua.getTituloa()+" liburuak ez du ID egokia "+pLiburua.getId()+" libururako"); // Avisa de que el Id se repite.
+ 					saiakerak ++; // Sube una saiakera.
+ 					Scanner sc = new Scanner (System.in);
+ 					System.out.print(saiakerak+". saiakera, Sartu id berri bat mesedez:");
+ 					int pId = sc.nextInt(); // Escanea el número que mete el erabiltzaile.				
+ 					pLiburua.liburuarenIdAldatu(pId); 
+ 					/* Si el id que ha metido sigue siendo el mismo, printea saiatu berriro. Sino, lo cambia. Y en la siguiente vuelta,
+ 					entra en el if y sale del do/while*/
+ 				}
+ 				
+ 			}
+ 			catch (KatalogatzeanIdErrepikatuaSalbuespena e)
+ 			{
+ 				System.out.println(saiakerak +" Saiakera: Sartu liburu honetarako ID berri bat: ");
+ 				
+ 			}
+ 		}while(!denaKontrolpean && saiakerak<3);
  		if (!denaKontrolpean)
  		{
- 			System.out.println("Saiakerak agortu dituzu. Katalogatze prozesua eten da.");
+ 			System.out.println("Hiru saiakerak agortu dituzu, katalogatze prozesua bertan behera utzi da.");
+ 			denaKontrolpean = true;
  		}
  	}
+ 		
  	public void deskatalogatuLiburua(int pIdLiburua)
  	{
  		ListaErabiltzaileak listaErabil = ListaErabiltzaileak.getListaErabiltzaileak();

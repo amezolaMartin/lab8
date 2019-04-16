@@ -48,8 +48,15 @@ public class Liburua
 	{
 		return this.idLiburua;
 	}
-	public void liburuarenIdAldatu(int pId)
+	public void liburuarenIdAldatu(int pId) throws KatalogatzeanIdErrepikatuaSalbuespena
 	{
-		this.idLiburua = pId;
+		if (this.getId()== pId)
+		{
+			System.out.println("Id berdina sartu duzu, saiatu beste batekin...");
+		}
+		else
+		{
+			this.idLiburua = pId;
+		}
 	}
 }

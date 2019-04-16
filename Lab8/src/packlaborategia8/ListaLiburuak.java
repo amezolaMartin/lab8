@@ -72,15 +72,8 @@ public class ListaLiburuak
 		return emaitza;
 	}
 	public void gehituLiburua(Liburua pLiburua)
-    {
-		if (!this.lista.contains(pLiburua)) 
-		{
-			this.lista.add(pLiburua);
-		}
-		else
-		{
-			// TODO.
-		}
+    {	
+		this.lista.add(pLiburua);
     }
 	public void kenduLiburua(Liburua pLiburua)
     {
