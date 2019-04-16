@@ -56,7 +56,7 @@ public class ListaLiburuak
 		}
 		return emaitza;
 	}
-	public boolean idBerdinekoLibururikBaAlDa(Liburua pLiburua)
+	public boolean idBerdinekoLibururikBaAlDa(Liburua pLiburua) throws KatalogatzeanIdErrepikatuaSalbuespena
 	{
 		Iterator<Liburua>itr = this.getIteradorea();
 		boolean emaitza = false;
@@ -67,6 +67,7 @@ public class ListaLiburuak
 			if (lib.idBerdinaDute(pLiburua))
 			{
 				emaitza = true;
+				throw new KatalogatzeanIdErrepikatuaSalbuespena();
 			}
 		}
 		return emaitza;

@@ -71,9 +71,29 @@ public class Katalogoa
  			System.out.println("Ezin daiteke liburua mailegatu, ez da liburua exititzen");
  		}
 	}
- 	public void itzuliLiburua(int pIdLiburua) throws EzinBueltatuEzDagoelakoMailegatutaSalbuespena
+ 	public void itzuliLiburua(int pIdLiburua) 
 	{
-	 	Liburua Lib = this.lista.bilatuLiburuaIdz(pIdLiburua);
+ 		Liburua Lib = this.lista.bilatuLiburuaIdz(pIdLiburua);
+ 		if (Lib != null)
+ 		{
+	 		try
+	 		{
+	 			this.itzulketaKonprobatu(Lib);
+	 			System.out.println(Lib.getTituloa()+" liburua ondo itzuli da");
+	 		}
+	 		catch (EzinBueltatuEzDagoelakoMailegatutaSalbuespena e)
+	 		{
+	 			System.out.println(e.getMessage());
+	 			Lib.inprimatu();
+	 		}
+	 		finally
+	 		{
+	 			System.out.println("");
+	 		}
+ 		}
+	}
+ 	private void itzulketaKonprobatu (Liburua Lib) throws EzinBueltatuEzDagoelakoMailegatutaSalbuespena
+ 	{
 	 	if (Lib != null)
 	 	{
 	 		if (ListaErabiltzaileak.getListaErabiltzaileak().norkDaukaMaileguan(Lib) != null)
@@ -83,17 +103,18 @@ public class Katalogoa
 			}
 			else
 			{
-	 			throw (new EzinBueltatuEzDagoelakoMailegatutaSalbuespena (Lib));
+	 			throw (new EzinBueltatuEzDagoelakoMailegatutaSalbuespena());
 	 		}
 	 	}
-	}
- 	public void katalogatuLiburua(Liburua pLiburua) throws KatalogatzeanIdErrepikatuaSalbuespena
+ 	}
+ 	public void katalogatuLiburua(Liburua pLiburua) 
  	{	
  		boolean denaKontrolpean = false;
- 		int saiakerak = 0;
- 		do 
+ 		int saiakerak = 1;
+ 		
+ 		do
  		{
- 			try 
+ 			try
  			{
  				if (!this.lista.idBerdinekoLibururikBaAlDa(pLiburua))
  				{
@@ -101,36 +122,27 @@ public class Katalogoa
  					System.out.println(pLiburua.getTituloa()+" liburua ondo katalogatuta");
  					denaKontrolpean = true; // Y sale del do/while.
  				}
- 				else
- 				{
- 					System.out.println(pLiburua.getTituloa()+" liburuak ez du ID egokia "+pLiburua.getId()+" libururako"); // Avisa de que el Id se repite.
- 					saiakerak ++; // Sube una saiakera.
- 					Scanner sc = new Scanner (System.in);
- 					System.out.println(saiakerak+". saiakera, Sartu id berri bat mesedez:");
- 					int pId = sc.nextInt(); // Escanea el número que mete el erabiltzaile.				
- 					pLiburua.liburuarenIdAldatu(pId); 
- 					/* Si el id que ha metido sigue siendo el mismo, printea saiatu berriro. Sino, lo cambia. Y en la siguiente vuelta,
- 					entra en el if y sale del do/while*/
- 				}
- 				
  			}
- 			catch (KatalogatzeanIdErrepikatuaSalbuespena e)
+ 			catch (KatalogatzeanIdErrepikatuaSalbuespena e) /*a este catch va a entrar solo si cuando hacemos la comprobacion 
+ 															idBerdinekoLibururikBaAlDa es true*/
  			{
- 				System.out.println(saiakerak +" Saiakera: Sartu liburu honetarako ID berri bat: ");
- 				
- 			}
- 			finally
- 			{
- 				System.out.println("");
- 			}
- 		}while(!denaKontrolpean && saiakerak<3);
- 		if (!denaKontrolpean)
- 		{
- 			System.out.println("Hiru saiakerak agortu dituzu, katalogatze prozesua bertan behera utzi da.");
- 			denaKontrolpean = true;
- 		}
- 	}
- 		
+ 				System.out.println(pLiburua.getTituloa()+" "+e.getMessage());
+ 				Scanner sc = new Scanner (System.in);
+				System.out.println(saiakerak+". saiakera, Sartu id berri bat mesedez:");
+				int pId = sc.nextInt(); // Escanea el número que mete el erabiltzaile.				
+				pLiburua.liburuarenIdAldatu(pId);
+				/* Si el id que ha metido sigue siendo el mismo, printea saiatu berriro. Sino, lo cambia. Y en la siguiente vuelta,
+				entra en el if y sale del do/while*/
+ 				saiakerak ++;
+ 			} 			
+ 		}while (!denaKontrolpean && saiakerak <= 3);
+		if (!denaKontrolpean)
+		{
+			System.out.println("Hiru saiakerak agortu dituzu, katalogatze prozesua bertan behera utzi da.");
+	 		denaKontrolpean = true;
+		}
+		System.out.println("");
+ 	}	
  	public void deskatalogatuLiburua(int pIdLiburua)
  	{
  		ListaErabiltzaileak listaErabil = ListaErabiltzaileak.getListaErabiltzaileak();

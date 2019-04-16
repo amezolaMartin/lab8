@@ -112,7 +112,7 @@ public class ListaLiburuakTest
 		assertFalse(lista.badago(l4));	
 	}
 	@Test
-	public void testIdBerdinekoLibururikBaAlDa() 
+	public void testIdBerdinekoLibururikBaAlDa() throws KatalogatzeanIdErrepikatuaSalbuespena
 	{
 		lista.gehituLiburua(l1);
 		lista.gehituLiburua(l2);
