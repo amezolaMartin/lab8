@@ -88,16 +88,27 @@ public class Katalogoa
 	}
  	public void katalogatuLiburua(Liburua pLiburua) throws KatalogatzeanIdErrepikatuaSalbuespena
  	{	
- 		if (!this.lista.idBerdinekoLibururikBaAlDa(pLiburua))
-		{
-			this.lista.gehituLiburua(pLiburua);
-			System.out.println(pLiburua.getTituloa()+" liburua ondo katalogatuta");
+ 		boolean denaKontrolpean = false;
+ 		int saiakerak = 0;
+ 		do {
+	 		if (!this.lista.idBerdinekoLibururikBaAlDa(pLiburua))
+			{
+				this.lista.gehituLiburua(pLiburua);
+				System.out.println(pLiburua.getTituloa()+" liburua ondo katalogatuta");
+				denaKontrolpean = true;
+			}
+			else
+			{
+				System.out.println(pLiburua.getId()+" liburuak ez du ID egokia "+pLiburua.getTituloa()+" libururako");
+				saiakerak ++;
+				throw new KatalogatzeanIdErrepikatuaSalbuespena (pLiburua);
+				
 		}
-		else
-		{
-			System.out.println(pLiburua.getId()+" liburuak ez du ID egokia "+pLiburua.getTituloa()+" libururako");
-			throw new KatalogatzeanIdErrepikatuaSalbuespena (pLiburua);
-		}
+ 		}while (!denaKontrolpean && saiakerak<3);
+ 		if (!denaKontrolpean)
+ 		{
+ 			System.out.println("Saiakerak agortu dituzu. Katalogatze prozesua eten da.");
+ 		}
  	}
  	public void deskatalogatuLiburua(int pIdLiburua)
  	{

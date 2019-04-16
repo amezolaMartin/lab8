@@ -43,26 +43,26 @@ public class NAGUSIA
 		lista.erabiltzaileaBajaEman(3333);					//Ez dago listan, salbuespena saltatu behar
 			
 			//2.puntua
-		System.out.println("_________________________");
-		System.out.println("testItzuliLiburua");
-		System.out.println("");
-		
-		lista.erabiltzaileariAltaEman(erab1);
-		lista.erabiltzaileariAltaEman(erab2);
-		lista.erabiltzaileariAltaEman(erab3);
-		
-		kat = Katalogoa.getKatalogoa();
-		kat.erreseteatu();
-		kat.katalogatuLiburua(lib1);
-		kat.katalogatuLiburua(lib2);
-		kat.katalogatuLiburua(lib3); //Hauek arazorik gabe katalogatu behar
-		
-		kat.mailegatuLiburua(1111, 1000);
-		kat.mailegatuLiburua(2222, 2000); //Hauek biak arazorik gabe mailegatu behar
-		
-		kat.itzuliLiburua(1111);
-		kat.itzuliLiburua(2222);
-		kat.itzuliLiburua(3333);
+//		System.out.println("_________________________");
+//		System.out.println("testItzuliLiburua");
+//		System.out.println("");
+//		
+//		lista.erabiltzaileariAltaEman(erab1);
+//		lista.erabiltzaileariAltaEman(erab2);
+//		lista.erabiltzaileariAltaEman(erab3);
+//		
+//		kat = Katalogoa.getKatalogoa();
+//		kat.erreseteatu();
+//		kat.katalogatuLiburua(lib1);
+//		kat.katalogatuLiburua(lib2);
+//		kat.katalogatuLiburua(lib3); //Hauek arazorik gabe katalogatu behar
+//		
+//		kat.mailegatuLiburua(1111, 1000);
+//		kat.mailegatuLiburua(2222, 2000); //Hauek biak arazorik gabe mailegatu behar
+//		
+//		kat.itzuliLiburua(1111);
+//		kat.itzuliLiburua(2222);
+//		kat.itzuliLiburua(3333);
 			
 			//3.puntua
 		System.out.println("_________________________");
@@ -71,13 +71,13 @@ public class NAGUSIA
 		kat = Katalogoa.getKatalogoa();
 		kat.katalogatuLiburua(lib1);
 		kat.katalogatuLiburua(lib2);
-		kat.katalogatuLiburua(lib3); // Meto los tres libros en el Katalogoaa
+		kat.katalogatuLiburua(lib3); // Meto los tres libros en el Katalogoa
 		
 		/* Ahora meto el 4, 5 y 6, y como tiene el mismo id que otros, podemos ver si la salbuespena 
 		 funciona. */
 		
-		kat.katalogatuLiburua(lib4); 
+		kat.katalogatuLiburua(lib4);
 		kat.katalogatuLiburua(lib5);
-		kat.katalogatuLiburua(lib6); 
+		kat.katalogatuLiburua(lib6);
 	}
 }
